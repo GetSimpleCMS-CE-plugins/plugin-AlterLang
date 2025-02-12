@@ -1,0 +1,95 @@
+/* GENERAL SETTINGS PAGE */
+#alterlang-settings-section .field-label
+{
+	margin-bottom : 8px !important ;
+}
+
+#alterlang-settings-section select
+{
+	margin-bottom : 8px !important ;
+	padding : 2px 3px ;
+}
+
+#alterlang-settings-section button ,
+#alterlang-settings-section input[type="submit"]
+{
+	color : white ;
+	padding : 3px 12px ;
+	font-weight : bold ;
+	font-size : 1.2em ;
+    border-radius : 3px ;
+	cursor : pointer ;
+	outline : none ;
+}
+
+#alterlang-settings-section button.alterlang-del-lang
+{
+	background-color : red ;
+	margin-left : 5px; 
+	border : 1px solid red ;
+}
+
+#alterlang-settings-section button.alterlang-del-lang:active
+{
+	background-color : white ;
+	color : red ;	
+}
+
+#alterlang-settings-section input[type="submit"]
+{
+	background-color : #63ABEA ;
+	border : 1px solid #63ABEA ;
+}
+
+#alterlang-settings-section input[type="submit"]:active
+{
+	background-color : white ;
+	color : #63ABEA ;
+}
+
+
+#alterlang-settings-section section.notif-messages
+{
+	padding : 10px 0 ;
+	width : 100%;
+	background-color : lightgreen; 
+	border : solid 1px green ;
+	text-align : center ;
+	margin-bottom : 20px ;
+	border-radius : 3px ;
+	font-weight : bold ;
+}
+
+
+/* ALTERNATIVE PAGES */
+#alterlang-alternative-pages fieldset
+{
+	position: relative;
+	padding : 15px ;
+    border-radius : 3px ;
+    margin-bottom : 10px ;
+}
+
+
+#alterlang-alternative-pages fieldset > label
+{
+	position : absolute ;
+    top : -12px ;
+    background : #f9f9f9 ;
+    padding : 3px 8px ;
+}
+
+#alterlang-alternative-pages fieldset > section > label
+{
+	margin-bottom : 8px ;
+	font-style : italic ;
+	font-weight : normal ;
+}
+
+#alterlang-alternative-pages fieldset > section select
+{
+	width : auto ;
+	min-width : 150px ;
+	margin-bottom : 8px !important ;
+	padding : 2px 3px ;
+}
