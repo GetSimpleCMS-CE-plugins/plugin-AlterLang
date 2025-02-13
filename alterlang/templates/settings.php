@@ -4,19 +4,23 @@
 
 	<?php if( $is_reverted ) : ?>
 		<section class="notif-messages">
-			<span>Ancienne configuration restaurée avec succès !</span>
+			<span><?php echo i18n_r('alterlang/lang_Old_Configuration'); ?></span>
 		</section>
 	<?php endif; ?>
+	
+	<h3><?php echo i18n_r('alterlang/lang_Page_Title'); ?></h3>
+	<p><?php echo i18n_r('alterlang/lang_Description'); ?></p>
+	<hr>
 	
 	<form name="<?php echo markup_name_prefix ?>settings" action="load.php?id=<?php echo plugin_name ?>" method="post" >
 		
 		<section class="leftsec" id="<?php echo markup_name_prefix ?>main-lang-section">
 		
 			<div class="field-label">
-			<div style="display:flex"><span style="background:black;color:white;font-size:x-large;margin: 7px;padding: 16px;">1</span><h4 style="border-bottom: 1px solid;margin: auto;margin-left: 7px;">FIRST LANGUAGE</h4></div>
+			<div style="display:flex"><span style="background:black;color:white;font-size:x-large;margin: 7px;padding: 16px;">1</span><h4 style="border-bottom: 1px solid;margin: auto;margin-left: 7px;text-transform: uppercase;"><?php echo i18n_r('alterlang/lang_Base_Lang'); ?></h4></div>
 			<br><br>
-				<label>Quelle page parente représente la langue principale du site ? (mother language)</label>
-				<span class="subtitle-explanation">( celle depuis laquelle les autres pages seront traduites )</span>
+				<label><?php echo i18n_r('alterlang/lang_Which_Parent'); ?></label>
+				<span class="subtitle-explanation">( <?php echo i18n_r('alterlang/lang_Translated_From'); ?> )</span>
 			</div>
 			
 			<div class="field-container">
@@ -45,10 +49,10 @@
 		<?php if( isset( $settings[ main_lang ] ) AND is_array( $settings[ main_lang ] ) ) : ?>
 		
 		<section class="rightsec" id="<?php echo markup_name_prefix ?>template-lang-section">
-		<div style="display:flex"><span style="background:black;color:white;font-size:x-large;margin: 7px;padding: 16px;">2</span><h4 style="border-bottom: 1px solid;margin: auto;margin-left: 7px;">ALTERNATIVES</h4></div>
+		<div style="display:flex"><span style="background:black;color:white;font-size:x-large;margin: 7px;padding: 16px;">2</span><h4 style="border-bottom: 1px solid;margin: auto;margin-left: 7px;text-transform: uppercase;"><?php echo i18n_r('alterlang/lang_Alt_Lang'); ?></h4></div>
 		<br><br>
 			<div class="field-label">
-				<label>Ajouter des templates linguistiques : (alternate languages : page and local)</label>
+				<label><?php echo i18n_r('alterlang/lang_Add_Lang'); ?></label>
 			</div>
 			
 			<?php do { ?>
@@ -63,36 +67,33 @@
 		
 		<section>
 		
-			<input type="submit" name="<?php echo markup_name_prefix ?>save" value="Sauvegarder" />
+			<input style="padding:5px 12px;background-color:#009900!important" type="submit" name="<?php echo markup_name_prefix ?>save" value="<?php echo i18n_r('alterlang/lang_Save'); ?>" />
 			
 		</section>
 		
 	</form>
 	
 	<?php if( exists_previous_config() ) : ?>
-		<p style="float: right;">Rétablir la précédente <a href="load.php?id=<?php echo plugin_name ?>&revert_config=yes" >configuration</a></p>
+		<p style="float: right;"><?php echo i18n_r('alterlang/lang_Restore'); ?> <a href="load.php?id=<?php echo plugin_name ?>&revert_config=yes" ><?php echo i18n_r('alterlang/lang_Configuration'); ?></a>.</p>
 	<?php endif; ?>
 		<br><br>
-		<hr style="
-    display: block;
-    width: 100%;
-    height: 50px;
-    border: none;
-">
-		<h4 style="border-bottom: 1px solid;">PURPOSE</h4>
-		<p>The purpose is to provide a real multilingual solution for Getsimple, uniques URLs (Better SEO), without the use of i18n, it is working with basic Getsimple CMS. It allows to add alternative pages to the sitemap. 
-Use the following code in your theme to switch between lang : 
+		<hr>
+		
+		<h3 style="text-transform: uppercase;"><?php echo i18n_r('alterlang/lang_About'); ?></h3>
+		
+		<h4 style="text-transform: uppercase;"><?php echo i18n_r('alterlang/lang_Purpose'); ?></h4>
+		<p><?php echo i18n_r('alterlang/lang_Purpose_Text'); ?> : 
 <code>&lt;?php print_alternative_pages_to_front(); ?&gt;</code> 
 </p>
 
-<h4 style="border-bottom: 1px solid;">SWITCH CODE EXAMPLE</h4>
-<p>Here is an idea for switching lang with flag : 
-<code>&lt;div class="box languageswitch"&gt;&lt;?php print_alternative_pages_to_front(); ?&gt;&lt;/div&gt;</code>
-<br>which output this code 
-<code>&lt;a class="link en" href="/home"&gt;en&lt;/a&gt;</code>
-<br>("en" comes from the mother page "en" which stands for english slug (system page id))
+<h4 style="text-transform: uppercase;"><?php echo i18n_r('alterlang/lang_Switch_Lang'); ?></h4>
+<p><?php echo i18n_r('alterlang/lang_Flag_Idea'); ?> :
+<code>&lt;div class="box languageswitch"&gt;&lt;?php print_alternative_pages_to_front(); ?&gt;&lt;/div&gt;</code></p>
+<p><?php echo i18n_r('alterlang/lang_Flag_Idea_Output'); ?> : 
+<code>&lt;a class="link en" href="/home"&gt;en&lt;/a&gt;</code></p>
+<p>(<?php echo i18n_r('alterlang/lang_EN_Meaning'); ?>)
 <br>
-<br>then it is styled with the following CSS (3 lines):
+<?php echo i18n_r('alterlang/lang_Then_Style'); ?> :</p>
 <pre>
 .languageswitch .en {
     background: no-repeat url(EnglishFlag.svg); /* Flag image for EN language */
@@ -100,32 +101,31 @@ Use the following code in your theme to switch between lang :
     width: 22px;
 }
 </pre>
-<br>
-Repeat this CSS for each lang flag you needed to the multilingual project.</p>
+<p><?php echo i18n_r('alterlang/lang_Repeat_CSS'); ?></p>
 
-<h4 style="border-bottom: 1px solid;">PAGES STRUCTURE</h4>
-<p>You have to organize your pages with the mother and children :</p>
+<h4 style="text-transform: uppercase;"><?php echo i18n_r('alterlang/lang_Pages_Structure'); ?></h4>
+<p><?php echo i18n_r('alterlang/lang_Pages_Structure_Text'); ?> :</p>
 <ul>
-    <li><strong>FR</strong> <small>(FIRST LANGUAGE - mother page)</small>:
+    <li><strong>FR</strong> <small>(<?php echo i18n_r('alterlang/lang_First_Lang'); ?>)</small>:
         <ul>
-            <li>page fr 1</li>
-            <li>page fr 2</li>
-            <li>page fr N</li>
+            <li><?php echo i18n_r('alterlang/lang_Page'); ?> FR 1</li>
+            <li><?php echo i18n_r('alterlang/lang_Page'); ?> FR 2</li>
+            <li><?php echo i18n_r('alterlang/lang_Page'); ?> FR N</li>
         </ul>
     </li>
-    <li><strong>EN</strong> <small>(EN is alternate french in this example)</small>:
+    <li><strong>EN</strong> <small>(<?php echo i18n_r('alterlang/lang_EN_Alt'); ?>)</small>:
         <ul>
-            <li>page en 1 (children page)</li>
-            <li>page en 2 (children page)</li>
-            <li>page en N (children page)</li>
+            <li><?php echo i18n_r('alterlang/lang_Page'); ?> EN 1 (<?php echo i18n_r('alterlang/lang_Child_Page'); ?>)</li>
+            <li><?php echo i18n_r('alterlang/lang_Page'); ?> EN 2 (<?php echo i18n_r('alterlang/lang_Child_Page'); ?>)</li>
+            <li><?php echo i18n_r('alterlang/lang_Page'); ?> EN N (<?php echo i18n_r('alterlang/lang_Child_Page'); ?>)</li>
         </ul>
     </li>
 </ul>
 
-<h4 style="border-bottom: 1px solid;">SITEMAP</h4>
-<p>Better SEO : You have to install <a href="https://github.com/GetSimpleCMS-CE-plugins/plugin-MetaRobots/archive/refs/heads/main.zip">MetaRobots plugin</a> for printing alternate pages in the Sitemap with tags for search engine : <b>rel="alternate"</b> and <b>hreflang="en"</b></p>
-<br><br>
-<a href="https://jvcms.fr">Free Plugin Alterlang for Getsimple - by JVCMS</a>
+<h4 style="text-transform: uppercase;"><?php echo i18n_r('alterlang/lang_Sitemap'); ?></h4>
+<p><?php echo i18n_r('alterlang/lang_Better_SEO'); ?> : <b style="color:#66CC33">rel="alternate"</b> <?php echo i18n_r('alterlang/lang_And'); ?> <b style="color:#66CC33">hreflang="en"</b></p>
+<hr>
+<a href="https://jvcms.fr">Free Plugin Alterlang for Getsimple CE - by JVCMS</a>
 </section>
 
 <div class="clear"></div>
