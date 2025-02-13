@@ -61,6 +61,30 @@
 }
 
 
+#alterlang-settings-section hr
+{
+	margin: 20px 0 30px 0;
+	border: 0;
+    height: 1px;
+    background: #333;
+    background-image: linear-gradient(to right, #ccc, #333, #ccc);
+}
+#alterlang-settings-section h4
+{
+	font-weight:600;
+	text-decoration:underline;
+	margin-bottom:10px;
+}
+#alterlang-settings-section code,pre
+{
+	border-radius: 4px;
+	border: 1px solid #ccc;
+	padding:5px;margin:5px;
+	font-size:12px;
+	color:#0066FF;
+}
+
+
 /* ALTERNATIVE PAGES */
 #alterlang-alternative-pages fieldset
 {
