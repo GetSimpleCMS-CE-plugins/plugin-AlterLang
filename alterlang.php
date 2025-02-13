@@ -22,11 +22,14 @@
  *===========================================================================================*/
  
 $thisfile = basename( __FILE__ , ".php" ) ;
+
+i18n_merge('alterlang') || i18n_merge('alterlang', 'en_US');
+
 register_plugin
 (
 	$thisfile , 
 	'AlterLang' , 	
-	'2.0.3' , 	
+	'2.0.4' , 	
 	'JVCMS' , 
 	'https://jvcms.fr' ,
 	'Real Multilingual for Getsimple. Uniques URLs. Better SEO. Helps dealing with several translated version of one page by allowing you to select equivalent pages in different languages.' ,
@@ -92,7 +95,7 @@ queue_script( 'alterlang-options-fields-script' , GSBACK ) ;
  
  
 /* REGISTERING HOOKS & FILTERS */
-add_action( 'pages-sidebar', 'createSideMenu', array( $thisfile , 'AlterLang Options' ) );
+add_action( 'pages-sidebar', 'createSideMenu', array( $thisfile , i18n_r('alterlang/lang_Menu_Title') ) );
 add_action( 'edit-extras' , 'print_alternative_pages' ) ;
 add_action( 'changedata-save' , 'process_alternative_pages' ) ; 
 add_action( 'pagecache-aftersave' , 'update_main_lang_children_list' ) ; 
